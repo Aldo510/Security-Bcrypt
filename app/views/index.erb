@@ -12,6 +12,13 @@
     <input id="submit" type="submit" value="Ingresar">
   </center>
 </form>
+<% if @message %>
+  <center>
+    <p><%= @message %></p>
+  </center>
+  <!--Hacer que el mensaje no existe para que no se muestre siempre-->
+  <% session[:message] = nil %>
+<% end %>
 <br>
 <hr>
 <center>

@@ -21,3 +21,6 @@ group :test do
   gem 'faker'
   gem 'rspec'
 end
+
+#Call the bcrypt security
+gem "bcrypt-ruby"
