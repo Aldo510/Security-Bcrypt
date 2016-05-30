@@ -1,7 +1,13 @@
 <!--Uso del helper para saber si el usuario esta registrado -->
 <% if logged_in? %>
 <!--Uso del helper para mostrar los datos del usuario logeado-->
-  <h1>Bienvenido a la pagina de los logeado <%= current_user.name %></h1>
+  <h1>Bienvenido a la pagina de los logeados. <%= current_user.name %></h1>
   <img src="http://www.locomotion.mx/assets/codeacamp_logo-d00e28326ca4ba35c48d58af090ee7df.png">
+  <br>
   <a href="/logout">Cerrar sesión</a>
+  <br>
+  <!--Hara que se borre la cuenta del usuario-->
+  <a href="/borrar_cuenta">Borrar cuenta</a>
+  <br>
+  <a href="/datos/:<%= current_user.id %>/edit">Actualizar datos</a>
 <% end %>

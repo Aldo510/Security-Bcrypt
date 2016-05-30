@@ -1,0 +1,17 @@
+<h1>Ingresa los datos para registrarte</h1>
+<form action="/edit/<%= current_user.id %>" method="post">
+  <center>
+    <p>Nombre</p>
+    <input type="text" name="nombre" value="<%= current_user.name %>">
+    <br>
+    <p>Correo</p>
+    <input type="text" value="<%= current_user.email %>" name="email">
+    <br>
+    <p>Contraseña NUEVA</p>
+    <input type="password" name="pass">
+    <br>
+    <br>
+    <input id="submit" type="submit" value="Actualizar">
+  </center>
+</form>
+<a class="boton" href="/logeado">Regresar</a>

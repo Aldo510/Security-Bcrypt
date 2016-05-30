@@ -21,6 +21,30 @@ get '/logout' do
   erb :index
 end
 
+get '/borrar_cuenta' do
+  #Poner los datos a borrar
+  #el helper solo regresa el id, no regresa el valor como fue llamado en la creacion de la tabla
+  User.delete(current_user.id)
+  session.clear
+  erb :index
+end
+
+get '/datos/:id/edit' do
+  #Poner las cosas para actualizar datos
+
+  erb :datos
+end
+
+post '/edit/:id' do
+  user_name = params[:nombre]
+  user_email = params[:email]
+  user_pass = params[:pass]
+  current_user.update(name: user_name, email: user_email, password: user_pass)
+  redirect to '/datos/:id/edit'
+end
+
+
+
 #Posto para ingresar a la session
 post '/submit' do
   user_email = params[:email]
@@ -43,6 +67,6 @@ post '/register' do
   user_name = params[:nombre]
   user_email = params[:email]
   user_pass = params[:pass]
-  p User.create(name: user_name, email: user_email, password: user_pass)
+  User.create(name: user_name, email: user_email, password: user_pass)
   redirect to '/'
 end
